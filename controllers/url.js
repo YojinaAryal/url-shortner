@@ -1,4 +1,4 @@
-const {shortid}=require("shortid");
+const shortid=require("shortid");
 const URL=require("../models/url")
 async function generateNewShortURL(req,res){
     const body=req.body;
@@ -6,7 +6,7 @@ async function generateNewShortURL(req,res){
     const shortID=shortid();
     await URL.create({
         shortId: shortID,
-        redirectURl: body.url,
+        redirectURL: body.url,
         visitHistory: [],
 });
 return res.json({id: shortID})
